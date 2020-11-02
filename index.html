@@ -8,10 +8,13 @@
   <!-- Import vega-embed -->
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
+<style>
+  <h1> {text-align: center;}
+ </style>
 <body>
 <body style="background-color:Azure;">
 <div id="vis"></div>
-<img src="3R.png" width="104" height="142">
+<img src="3R.png" width="500" height="500">
 <script type="text/javascript">
   var spec = "https://raw.githubusercontent.com/HungryBong/FIT3179/main/Map2Revised.json";
   vegaEmbed('#vis', spec).then(function(result) {
