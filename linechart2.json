@@ -1,0 +1,68 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "description": "Global production of plastic",
+  "data": {
+    "url": "https://raw.githubusercontent.com/HungryBong/FIT3179/main/Global%20plastic%20production%20-%20Geyer%20et%20al.%20(2017).csv"
+  },
+  "layer": [
+    {
+      "mark": {"type": "line", "point": false},
+      "encoding": {
+        "x": {"timeUnit": "year", "field": "Year"},
+        "y": {
+          "field": "Global plastics production (million tonnes)",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {"timeUnit": "year", "field": "Year", "type": "temporal"},
+          {
+            "field": "Global plastics production (million tonnes)",
+            "type": "quantitative"
+          }
+        ]
+      },
+      "selection": {
+        "hover": {
+          "type": "single",
+          "fields": ["year"],
+          "nearest": true,
+          "on": "mouseover",
+          "empty": "none",
+          "clear": "mouseout"
+        }
+      }
+    },
+    {
+      "mark": "line",
+      "encoding": {
+        "x": {"field": "Year", "type": "temporal", "title": "Year"},
+        "y": {
+          "field": "Cumulative global plastics production (million tonnes)",
+          "type": "quantitative",
+          "title": "Global Plastic Production (million tonnes)"
+        },
+        "color": {"value": "#ff9900"},
+        "tooltip": [
+          {"timeUnit": "year", "field": "Year", "type": "temporal"},
+          {
+            "field": "Cumulative global plastics production (million tonnes)",
+            "type": "quantitative"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {"type": "rule"},
+      "data": {"values": [{"Cumulative": "Cumulative production"}]},
+      "encoding": {
+        "color": {
+          "field": "Cumulative",
+          "scale": {"range": ["#ff9900", "blue"]},
+          "type": "nominal",
+          "legend": {"title": "Legend"}
+        }
+      }
+    }
+  ],
+  "config": {"background": "#F0FFFF"}
+}
